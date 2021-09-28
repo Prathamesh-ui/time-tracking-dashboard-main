@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://fonts.google.com/specimen/Rubik">
+  
+  <title>Frontend Mentor | Time tracking dashboard</title>
+
+</head>
+<style>
+  body{
+    background-color: hsl(226, 43%, 10%);
+  }
+  .container{
+    width: 100%;
+    height: 43rem;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  #card1{
+    width: 14rem;
+    border: none;
+    height: 24rem;
+    background-color: hsl(235, 46%, 20%);
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+  #card2{
+    width: 14rem;
+    border: none;
+    height: 24rem;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+  }
+  #card3{
+    width: 14rem;
+    border: none;
+    height: 24rem;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+  }
+  #card4{
+    width: 14rem;
+    border: none;
+    height: 24rem;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+  }
+
+  #name{
+    height: 20rem;
+    background-color: hsl(246, 80%, 60%);
+    border: none;
+    border-radius: 13px;
+  }
+
+
+  #name img{
+    width: 65px;
+    height: 65px;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border: 3px solid white;
+    border-radius: 100px;
+  }
+
+  #report{
+    font-family: 'Rubik';
+    color: hsl(235, 59%, 74%);
+    margin-top: 20px;
+    margin-left: 20px;
+    font-weight: 500;
+  }
+  .list{
+    margin: 10px;
+  }
+  .list li{
+    margin: 15px;
+    list-style: none;
+    color: hsl(235, 45%, 61%);
+    font-family: 'Rubik';
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .list li:hover{
+    color: white;
+  }
+  #names{
+    font-family: 'Rubik';
+    color: rgb(224, 223, 240);
+    font-size: 32px;
+    font-weight: 300;
+    margin-top: 2px;
+    margin-left: 20px;
+  }
+  #work{
+    height: 11rem;
+    border: none;
+    margin-bottom: 20px;
+    background-color: hsl(15, 100%, 70%);
+    background-image: url('./images/icon-work.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 60px;
+    border-radius: 13px;
+  }
+  #play{
+    height: 11rem;
+    border: none;
+    margin-bottom: 20px;
+    background-color: hsl(195, 74%, 62%);
+    background-image: url('./images/icon-play.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 60px;
+    border-radius: 13px;
+
+  }
+  #study{
+    height: 11rem;
+    border: none;
+    margin-bottom: 20px;
+    background-color: hsl(348, 100%, 68%);
+    background-image: url('./images/icon-study.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 60px;
+    border-radius: 13px;
+
+  }
+
+  #worked{
+    height: 8rem;
+    border: none;
+    margin-top: 3rem;
+    background-color: hsl(235, 46%, 20%);
+    color: white;
+    font-size: 18px;
+    font-family: 'Rubik';
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    cursor: pointer;
+  }
+
+  #worked:hover{
+    background-color: hsl(235, 45%, 61%);
+  }
+
+  #studied{
+    height: 8rem;
+    border: none;
+    margin-top: 3rem;
+    background-color: hsl(235, 46%, 20%);
+    color: white;
+    font-size: 18px;
+    font-family: 'Rubik';
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    cursor: pointer;
+  }
+  #studied:hover{
+    background-color: hsl(235, 45%, 61%);
+  }
+  #played:hover{
+    background-color: hsl(235, 45%, 61%);
+  }
+  #exercised:hover{
+    background-color: hsl(235, 45%, 61%);
+  }
+  #self-cared:hover{
+    background-color: hsl(235, 45%, 61%);
+  }
+  #socialed:hover{
+    background-color: hsl(235, 45%, 61%);
+  }
+  #played{
+    height: 8rem;
+    border: none;
+    margin-top: 3rem;
+    background-color: hsl(235, 46%, 20%);
+    color: white;
+    font-size: 18px;
+    font-family: 'Rubik';
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    cursor: pointer;
+  }
+  #exercise{
+    height: 11rem;
+    border: none;
+    margin-bottom: 20px;
+    background-color: hsl(145, 58%, 55%);
+    background-image: url('./images/icon-exercise.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 60px;
+    border-radius: 13px;
+    margin-top: 20px;
+  }
+  #social{
+    height: 11rem;
+    border: none;
+    margin-bottom: 20px;
+    background-color: hsl(264, 64%, 52%);
+    background-image: url('./images/icon-social.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 60px;
+    border-radius: 13px;
+    margin-top: 20px;
+  }
+  #self{
+    height: 11rem;
+    border: none;
+    margin-bottom: 20px;
+    background-color: hsl(43, 84%, 65%);
+    background-image: url('./images/icon-self-care.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 60px;
+    border-radius: 13px;
+    margin-top: 20px;
+  }
+  
+  #exercised{
+    height: 8rem;
+    border: none;
+    margin-top: 2.5rem;
+    background-color: hsl(235, 46%, 20%);
+    color: white;
+    font-size: 18px;
+    font-family: 'Rubik';
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    cursor: pointer;
+  }
+  #socialed{
+    height: 8rem;
+    border: none;
+    margin-top: 2.5rem;
+    background-color: hsl(235, 46%, 20%);
+    color: white;
+    font-size: 18px;
+    font-family: 'Rubik';
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    cursor: pointer;
+  }
+  #self-cared{
+    height: 8rem;
+    border: none;
+    margin-top: 2.5rem;
+    background-color: hsl(235, 46%, 20%);
+    color: white;
+    font-size: 18px;
+    font-family: 'Rubik';
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    cursor: pointer;
+  }
+
+  .wdot{
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+  }  
+  .w{
+    width: 50%;
+    margin-left: 20px;
+    margin-top: 15px;
+  }
+  .dot{
+    width: 50%;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 25px;
+  }
+  .hrs{
+    margin-top: 20px;
+    font-size: 36px;
+    margin-left: 20px;
+    color: rgb(224, 223, 240);
+    font-weight: 500;
+    font-family: 'Rubik';
+  }
+  .last{
+    color: hsl(235, 59%, 74%);
+    font-size: 12px;
+    margin-left: 20px;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 375px){
+  .container{
+    flex-direction: column;
+    height: 100%;
+  }
+  }
+</style>
+<body>
+
+<div class="container">
+  <div id="card1">
+    <div id="name">
+      <img src="./images/image-jeremy.png" alt="">
+      <div id="report">Report for</div>
+      <div id="names">
+          Jeremy <br/>
+          Robson
+      </div>
+    </div>
+    <div class="list">
+      <li>Daily</li>
+      <li>Weekly</li>
+      <li>Monthly</li>
+    </div>
+  </div>      
+  <div id="card2">
+      <div id="work">
+          <div id="worked">
+            <div class="wdot">
+              <div class="w">Work</div>
+              <div class="dot">...</div>
+            </div>
+            <div class="hrs">
+              32hrs
+            </div>      
+            <div class="last">Last Week - 36hrs</div>      
+          </div>
+      </div>
+      <div id="exercise">
+        <div id="exercised">
+          <div class="wdot">
+            <div class="w">Exercise</div>
+            <div class="dot">...</div>
+          </div>
+          <div class="hrs">
+            4hrs
+          </div>      
+          <div class="last">Last Week - 5hrs</div>      
+        </div>
+    </div>
+  </div>
+  <div id="card3">
+    <div id="play">
+      <div id="played">
+        <div class="wdot">
+          <div class="w">Work</div>
+          <div class="dot">...</div>
+        </div>
+        <div class="hrs">
+          10hrs
+        </div>      
+        <div class="last">Last Week - 8hrs</div>      
+      </div>
+  </div>
+  <div id="social">
+    <div id="socialed">
+      <div class="wdot">
+        <div class="w">Social</div>
+        <div class="dot">...</div>
+      </div>
+      <div class="hrs">
+        5hrs
+      </div>      
+      <div class="last">Last Week - 10hrs</div>      
+    </div>
+  </div>
+  </div>
+  <div id="card4">
+    <div id="study">
+      <div id="studied">
+        <div class="wdot">
+          <div class="w">Study</div>
+          <div class="dot">...</div>
+        </div>
+        <div class="hrs">
+          4hrs
+        </div>      
+        <div class="last">Last Week - 7hrs</div>      
+      </div>
+    </div>
+    <div id="self">
+    <div id="self-cared">
+      <div class="wdot">
+        <div class="w">Social</div>
+        <div class="dot">...</div>
+      </div>
+      <div class="hrs">
+        2hrs
+      </div>      
+      <div class="last">Last Week - 2hrs</div>      
+    </div>
+  </div>
+  </div>
+</div>  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>
